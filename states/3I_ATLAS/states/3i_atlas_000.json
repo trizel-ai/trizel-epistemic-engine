@@ -1,0 +1,20 @@
+{
+  "state_id": "3i_atlas_000",
+  "timestamp": "2025-12-22T20:00:00Z",
+  "source_doi": "10.5281/zenodo.18012859",
+  "determinacy": "plausible",
+  "assumptions": [
+    "Placeholder assumption for neutral state"
+  ],
+  "required_observations": [
+    "Placeholder observation requirement"
+  ],
+  "provenance": {
+    "ingest_doi": "10.5281/zenodo.18012859",
+    "record_ids": []
+  },
+  "incompatibilities": [],
+  "description": "Neutral placeholder state for 3I/ATLAS registry initialization",
+  "tags": ["placeholder", "neutral"],
+  "version": "1.0.0"
+}

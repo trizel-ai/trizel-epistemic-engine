@@ -26,14 +26,21 @@ trizel-epistemic-engine/
 ├── PROJECT_STATUS.md         # Current status and roadmap
 ├── DATA_CONTRACT.md          # Interface definitions and constraints
 ├── ZENODO_LINKS.md          # Read-only DOI references
-├── schemas/                  # JSON schemas
+├── schema/                   # JSON schema
 │   └── epistemic_state.schema.json
-├── registry/                 # State registries
-│   └── 3i_atlas_states.json
+├── states/                   # State registries and files
+│   └── 3I_ATLAS/
+│       ├── state_registry.json
+│       └── states/
+│           └── *.json        # Individual state files
 ├── src/                      # Source code
-│   └── validation.py         # Validation utilities
+│   └── epistemic/
+│       ├── __init__.py
+│       ├── io.py             # I/O utilities
+│       ├── registry.py       # Registry management
+│       └── validate_states.py # State validation
 ├── tests/                    # Test suite
-│   └── test_validation.py
+│   └── test_epistemic.py
 └── examples/                 # Usage examples
     └── usage_example.py
 ```
@@ -49,14 +56,20 @@ pip install -r requirements.txt
 ### Validate an Epistemic State
 
 ```python
-from src.validation import validate_epistemic_state
+from src.epistemic import validate_epistemic_state
 
 state = {
     "state_id": "3i_atlas_001",
     "timestamp": "2025-12-22T19:52:24Z",
-    "source_doi": "10.5281/zenodo.example",
-    "epistemic_status": "competing",
-    "metadata": {}
+    "source_doi": "10.5281/zenodo.18012859",
+    "determinacy": "plausible",
+    "assumptions": ["Standard cosmology"],
+    "required_observations": ["Multi-wavelength photometry"],
+    "provenance": {
+        "ingest_doi": "10.5281/zenodo.18012859",
+        "record_ids": []
+    },
+    "incompatibilities": []
 }
 
 is_valid, errors = validate_epistemic_state(state)
@@ -65,9 +78,9 @@ is_valid, errors = validate_epistemic_state(state)
 ### Load State Registry
 
 ```python
-from src.validation import load_state_registry
+from src.epistemic import load_state_registry
 
-registry = load_state_registry("registry/3i_atlas_states.json")
+registry = load_state_registry("states/3I_ATLAS/state_registry.json")
 ```
 
 ## Testing
@@ -90,6 +103,17 @@ python3 examples/usage_example.py
 2. **No data ingestion**: This layer does not fetch, parse, or interpret external data
 3. **No interpretation ranking**: Epistemic states are stored without preference ordering
 4. **Audit-safe**: All operations are deterministic and traceable
+5. **Fixed ingest DOI**: All states must reference provenance.ingest_doi = "10.5281/zenodo.18012859"
+6. **Lexicographic sorting**: Registry state_files list must be sorted lexicographically
+
+## Determinacy Status
+
+Epistemic states use determinacy classification:
+- **confirmed**: Empirically verified with high confidence
+- **plausible**: Consistent with observations, not yet confirmed
+- **underdetermined**: Multiple competing interpretations possible
+- **unfalsified**: Not yet contradicted by evidence
+- **falsified**: Contradicted by empirical evidence
 
 ## License
 

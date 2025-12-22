@@ -1,0 +1,10 @@
+{
+  "registry_version": "1.0.0",
+  "system": "3I_ATLAS",
+  "created": "2025-12-22T19:52:24Z",
+  "description": "Epistemic state registry for 3I/ATLAS competing interpretations",
+  "schema_ref": "../../schema/epistemic_state.schema.json",
+  "state_files": [
+    "states/3i_atlas_000.json"
+  ]
+}
