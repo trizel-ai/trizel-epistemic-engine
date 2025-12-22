@@ -1,0 +1,63 @@
+{
+  "state_id": "2025-12-22_neutral_baseline",
+  "timestamp": "2025-12-22T20:20:00Z",
+  "zenodo_doi": "10.5281/zenodo.0000001",
+  "description": "Neutral baseline epistemic state with minimal assumptions, serving as a reference point for 3I/ATLAS interpretations",
+  "metadata": {
+    "author": "TRIZEL Project Team",
+    "version": "1.0.0",
+    "tags": [
+      "baseline",
+      "neutral",
+      "3i_atlas",
+      "placeholder"
+    ],
+    "created_date": "2025-12-22",
+    "last_modified": "2025-12-22"
+  },
+  "interpretation": {
+    "framework": "Model-agnostic descriptive statistics",
+    "assumptions": [
+      "Data is as recorded by instruments",
+      "No systematic biases assumed or corrected",
+      "Minimal preprocessing applied"
+    ],
+    "scope": "Baseline characterization of 3I/ATLAS dataset without interpretive framework",
+    "methodology": "Direct summary statistics and distributions without inferential modeling",
+    "limitations": [
+      "No causal claims",
+      "No hypothesis testing",
+      "Limited to descriptive measures"
+    ]
+  },
+  "data_references": [
+    {
+      "dataset_id": "3iatlat_main_placeholder",
+      "zenodo_doi": "10.5281/zenodo.0000001",
+      "description": "Placeholder reference to 3I/ATLAS primary observational data",
+      "version": "1.0.0",
+      "role": "primary"
+    }
+  ],
+  "provenance": {
+    "software": [
+      {
+        "name": "python",
+        "version": "3.9+"
+      }
+    ],
+    "execution_date": "2025-12-22",
+    "random_seed": 42
+  },
+  "results_summary": {
+    "summary_text": "This is a placeholder state for establishing baseline structure and validation",
+    "key_findings": [
+      "Placeholder state for testing schema validation",
+      "No actual analysis performed"
+    ],
+    "metrics": {
+      "placeholder_count": 0
+    }
+  },
+  "notes": "This is a placeholder state for Phase-2 initialization. It establishes the structure and validates the schema, but contains no real analysis results."
+}

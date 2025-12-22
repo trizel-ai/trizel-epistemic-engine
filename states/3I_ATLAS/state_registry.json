@@ -1,0 +1,25 @@
+{
+  "registry_version": "1.0.0",
+  "last_updated": "2025-12-22T20:20:00Z",
+  "description": "Registry of all epistemic states for 3I/ATLAS interpretations",
+  "states": [
+    {
+      "state_id": "2025-12-22_neutral_baseline",
+      "file_path": "states/3I_ATLAS/states/2025-12-22_neutral_baseline.json",
+      "active": true,
+      "description": "Neutral baseline state with minimal assumptions"
+    },
+    {
+      "state_id": "2025-12-22_placeholder_bayesian",
+      "file_path": "states/3I_ATLAS/states/2025-12-22_placeholder_bayesian.json",
+      "active": true,
+      "description": "Placeholder for Bayesian interpretation"
+    },
+    {
+      "state_id": "2025-12-22_placeholder_frequentist",
+      "file_path": "states/3I_ATLAS/states/2025-12-22_placeholder_frequentist.json",
+      "active": true,
+      "description": "Placeholder for frequentist interpretation"
+    }
+  ]
+}
