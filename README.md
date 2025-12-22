@@ -32,8 +32,10 @@ trizel-epistemic-engine/
 │   └── 3i_atlas_states.json
 ├── src/                      # Source code
 │   └── validation.py         # Validation utilities
-└── tests/                    # Test suite
-    └── test_validation.py
+├── tests/                    # Test suite
+│   └── test_validation.py
+└── examples/                 # Usage examples
+    └── usage_example.py
 ```
 
 ## Installation
@@ -72,6 +74,14 @@ registry = load_state_registry("registry/3i_atlas_states.json")
 
 ```bash
 pytest tests/
+```
+
+## Examples
+
+See the `examples/` directory for usage demonstrations:
+
+```bash
+python3 examples/usage_example.py
 ```
 
 ## Hard Rules
