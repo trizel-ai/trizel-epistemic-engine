@@ -5,19 +5,19 @@
   "states": [
     {
       "state_id": "2025-12-22_neutral_baseline",
-      "file_path": "states/3I_ATLAS/states/2025-12-22_neutral_baseline.json",
+      "file_path": "states/2025-12-22_neutral_baseline.json",
       "active": true,
       "description": "Neutral baseline state with minimal assumptions"
     },
     {
       "state_id": "2025-12-22_placeholder_bayesian",
-      "file_path": "states/3I_ATLAS/states/2025-12-22_placeholder_bayesian.json",
+      "file_path": "states/2025-12-22_placeholder_bayesian.json",
       "active": true,
       "description": "Placeholder for Bayesian interpretation"
     },
     {
       "state_id": "2025-12-22_placeholder_frequentist",
-      "file_path": "states/3I_ATLAS/states/2025-12-22_placeholder_frequentist.json",
+      "file_path": "states/2025-12-22_placeholder_frequentist.json",
       "active": true,
       "description": "Placeholder for frequentist interpretation"
     }
