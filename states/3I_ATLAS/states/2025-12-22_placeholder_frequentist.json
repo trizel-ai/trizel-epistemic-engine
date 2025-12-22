@@ -45,7 +45,7 @@
     "software": [
       {
         "name": "python",
-        "version": "3.9+"
+        "version": "3.9.0"
       },
       {
         "name": "scipy",
