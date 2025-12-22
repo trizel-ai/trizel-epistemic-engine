@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://trizel.ai/schemas/epistemic_state.schema.json",
+  "title": "Epistemic State Schema",
+  "description": "JSON Schema for TRIZEL epistemic state files, ensuring immutability, reproducibility, and audit compliance",
+  "type": "object",
+  "required": [
+    "state_id",
+    "timestamp",
+    "zenodo_doi",
+    "description",
+    "metadata",
+    "interpretation",
+    "data_references"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "state_id": {
+      "type": "string",
+      "description": "Unique identifier for this epistemic state",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-zA-Z0-9_-]+$",
+      "examples": [
+        "2025-12-22_3iatlat_bayesian_variables",
+        "2025-12-22_frequentist_transients"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "ISO 8601 timestamp of state creation",
+      "format": "date-time",
+      "examples": [
+        "2025-12-22T20:20:00Z",
+        "2025-12-22T15:30:45.123Z"
+      ]
+    },
+    "zenodo_doi": {
+      "type": "string",
+      "description": "Primary Zenodo DOI for the dataset this state interprets",
+      "pattern": "^10\\.5281/zenodo\\.[0-9]+$",
+      "examples": [
+        "10.5281/zenodo.1234567",
+        "10.5281/zenodo.7654321"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of this epistemic state",
+      "minLength": 10,
+      "maxLength": 500,
+      "examples": [
+        "Bayesian interpretation of variable star candidates in 3I/ATLAS Field 1 using informative priors from GCVS"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the state creation and versioning",
+      "required": [
+        "author",
+        "version",
+        "tags"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "Author or creator of this epistemic state",
+          "minLength": 2,
+          "maxLength": 100,
+          "examples": [
+            "Jane Smith",
+            "TRIZEL Team"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version of this state",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+          "examples": [
+            "1.0.0",
+            "2.1.3",
+            "1.0.0-beta.1"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "description": "Categorization tags for this state",
+          "minItems": 1,
+          "maxItems": 10,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]+$",
+            "examples": [
+              "bayesian",
+              "variable_stars",
+              "3i_atlas",
+              "photometry"
+            ]
+          }
+        },
+        "created_date": {
+          "type": "string",
+          "description": "Date of initial creation (YYYY-MM-DD)",
+          "format": "date",
+          "examples": [
+            "2025-12-22"
+          ]
+        },
+        "last_modified": {
+          "type": "string",
+          "description": "Date of last modification (YYYY-MM-DD)",
+          "format": "date",
+          "examples": [
+            "2025-12-22"
+          ]
+        }
+      }
+    },
+    "interpretation": {
+      "type": "object",
+      "description": "Details of the epistemic interpretation",
+      "required": [
+        "framework",
+        "assumptions",
+        "scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "framework": {
+          "type": "string",
+          "description": "Epistemic framework used for interpretation",
+          "minLength": 3,
+          "maxLength": 100,
+          "examples": [
+            "Bayesian inference",
+            "Frequentist hypothesis testing",
+            "Model-agnostic descriptive statistics"
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "description": "Key assumptions underlying this interpretation",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 300,
+            "examples": [
+              "Gaussian measurement errors",
+              "Stationary light curves",
+              "Independent observations"
+            ]
+          }
+        },
+        "scope": {
+          "type": "string",
+          "description": "Scope and limitations of this interpretation",
+          "minLength": 10,
+          "maxLength": 500,
+          "examples": [
+            "Variable star detection in 3I/ATLAS Field 1, excluding transients and artifacts"
+          ]
+        },
+        "methodology": {
+          "type": "string",
+          "description": "Brief description of methodology used",
+          "minLength": 10,
+          "maxLength": 1000,
+          "examples": [
+            "Bayesian model comparison with Beta(2,2) prior on variability probability"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "description": "Known limitations of this interpretation",
+          "items": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 300,
+            "examples": [
+              "Does not account for selection biases",
+              "Limited to sources with >10 observations"
+            ]
+          }
+        }
+      }
+    },
+    "data_references": {
+      "type": "array",
+      "description": "References to datasets used in this interpretation",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "required": [
+          "dataset_id",
+          "zenodo_doi",
+          "description"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "dataset_id": {
+            "type": "string",
+            "description": "Unique identifier for this dataset reference",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "examples": [
+              "3iatlat_main_v1",
+              "calibration_frames_v2"
+            ]
+          },
+          "zenodo_doi": {
+            "type": "string",
+            "description": "Zenodo DOI for this dataset",
+            "pattern": "^10\\.5281/zenodo\\.[0-9]+$",
+            "examples": [
+              "10.5281/zenodo.1234567"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of this dataset and its role",
+            "minLength": 10,
+            "maxLength": 300,
+            "examples": [
+              "Primary observational data from 3I/ATLAS survey"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the dataset",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+            "examples": [
+              "1.0.0"
+            ]
+          },
+          "role": {
+            "type": "string",
+            "description": "Role of this dataset in the interpretation",
+            "enum": [
+              "primary",
+              "calibration",
+              "reference",
+              "prior",
+              "supplementary"
+            ],
+            "examples": [
+              "primary",
+              "calibration"
+            ]
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "Provenance information for reproducibility",
+      "additionalProperties": false,
+      "properties": {
+        "software": {
+          "type": "array",
+          "description": "Software used to create this state",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "version"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "examples": [
+                  "numpy",
+                  "scipy"
+                ]
+              },
+              "version": {
+                "type": "string",
+                "examples": [
+                  "1.24.0"
+                ]
+              },
+              "doi": {
+                "type": "string",
+                "pattern": "^10\\.[0-9]{4,}/.+$",
+                "examples": [
+                  "10.1038/s41586-020-2649-2"
+                ]
+              }
+            }
+          }
+        },
+        "code_repository": {
+          "type": "string",
+          "description": "URL or DOI of code repository used",
+          "examples": [
+            "https://github.com/example/analysis",
+            "10.5281/zenodo.7654321"
+          ]
+        },
+        "execution_date": {
+          "type": "string",
+          "description": "Date of execution (YYYY-MM-DD)",
+          "format": "date",
+          "examples": [
+            "2025-12-22"
+          ]
+        },
+        "random_seed": {
+          "type": "integer",
+          "description": "Random seed used for reproducibility",
+          "minimum": 0,
+          "examples": [
+            42,
+            12345
+          ]
+        }
+      }
+    },
+    "results_summary": {
+      "type": "object",
+      "description": "High-level summary of interpretation results",
+      "additionalProperties": false,
+      "properties": {
+        "summary_text": {
+          "type": "string",
+          "description": "Brief text summary of results",
+          "minLength": 10,
+          "maxLength": 1000,
+          "examples": [
+            "Identified 127 variable star candidates with posterior probability >0.9"
+          ]
+        },
+        "key_findings": {
+          "type": "array",
+          "description": "Key findings from this interpretation",
+          "items": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 300,
+            "examples": [
+              "Variable star fraction consistent with field expectations"
+            ]
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "description": "Quantitative metrics from this interpretation",
+          "additionalProperties": {
+            "type": "number"
+          },
+          "examples": [
+            {
+              "num_candidates": 127,
+              "mean_period_days": 2.34,
+              "median_amplitude_mag": 0.45
+            }
+          ]
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or comments",
+      "maxLength": 2000,
+      "examples": [
+        "This state represents the initial baseline interpretation before applying selection corrections"
+      ]
+    }
+  }
+}
