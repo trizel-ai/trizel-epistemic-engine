@@ -123,7 +123,7 @@ def validate_doi(doi: str) -> Tuple[bool, Optional[str]]:
     Returns:
         Tuple of (is_valid, error_message).
     """
-    pattern = r'^10\.[0-9]{4,}(\.{0,1}[0-9]+)*/[^\s]+$'
+    pattern = r'^10\.[0-9]{4,}(\.[0-9]+)*/[^\s]+$'
     if not re.match(pattern, doi):
         return False, f"source_doi '{doi}' does not match DOI format pattern"
     return True, None
