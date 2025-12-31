@@ -1,0 +1,22 @@
+name: Phase-3 Analysis Validation
+
+on:
+  pull_request:
+    branches:
+      - phase2/initialize-epistemic-engine
+
+jobs:
+  phase3-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Phase-3 smoke test
+        run: |
+          python -m unittest tests.test_phase3_smoke
