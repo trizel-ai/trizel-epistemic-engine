@@ -1,0 +1,16 @@
+{
+  "state_id": "3I_ATLAS_state_neutral_1",
+  "label": "Neutral placeholder state 1",
+  "assumptions": [
+    "This is a placeholder epistemic state pending future Phase-2 ingest-derived additions."
+  ],
+  "required_observations": [
+    "At least one ingest-derived observation identifier must be mapped to this state in Phase-2 execution."
+  ],
+  "incompatibilities": [],
+  "determinacy": "underdetermined",
+  "provenance": {
+    "ingest_doi": "10.5281/zenodo.18012859",
+    "record_ids": []
+  }
+} 
