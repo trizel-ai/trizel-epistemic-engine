@@ -5,7 +5,7 @@
   "run_id": "RUN_0001",
   "method_id": "noop",
   "input_scope": "states/3I_ATLAS",
-  "input_files_count": "<0>",
+  "input_files_count": 3,
   "determinism": {
     "network": "disabled",
     "ordering": "lexicographic",
