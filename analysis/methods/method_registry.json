@@ -1,0 +1,22 @@
+{
+  "registry_version": "1.0",
+  "methods": [
+    {
+      "method_id": "P3.M0.CONTRACT_ONLY",
+      "name": "Contract-only validation run",
+      "status": "active",
+      "scope": "Produces only manifest.json and summary.json without interpreting data.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "rankings",
+        "scores",
+        "interpretive conclusions",
+        "network access",
+        "timestamps"
+      ]
+    }
+  ]
+}
