@@ -1,0 +1,75 @@
+{
+  "tcp_version": "1.0",
+  "layer": "TCRL",
+  "purpose": "Theory Comprehension & Reduction Layer template. This file is a non-evaluative scaffold only; it does not test, rank, or validate any theory.",
+  "theory_identity": {
+    "theory_id": "TCRL.THEORY.UNSPECIFIED",
+    "title": "UNSPECIFIED (template)",
+    "authors": [],
+    "canonical_reference": {
+      "type": "url_or_doi_or_citation",
+      "value": ""
+    },
+    "license": "UNSPECIFIED",
+    "language": "UNSPECIFIED"
+  },
+  "inputs": {
+    "theory_corpus": {
+      "description": "Pointers to the theory as a closed unit (papers, notes, axioms, definitions). No interpretation is performed here.",
+      "artifacts": []
+    },
+    "allowed_context": {
+      "notes": "Optional context that does not change the theory content (historical notes, glossary).",
+      "artifacts": []
+    }
+  },
+  "hermeneutic_pass": {
+    "entities": [],
+    "axioms": [],
+    "definitions": [],
+    "causality_model": "UNSPECIFIED",
+    "measurement_concept": "UNSPECIFIED",
+    "phenomenon_concept": "UNSPECIFIED"
+  },
+  "reduction_pass": {
+    "claim_units": [
+      {
+        "claim_id": "CLAIM.0001",
+        "statement": "UNSPECIFIED (template claim statement)",
+        "dependencies": [],
+        "internal_terms_used": [],
+        "requires_full_theory": true,
+        "notes": "If requires_full_theory=true, this claim cannot be extracted without distortion; it must be reduced before Phase-4 testing."
+      }
+    ],
+    "observable_mapping_candidates": [
+      {
+        "mapping_id": "MAP.0001",
+        "claim_id": "CLAIM.0001",
+        "candidate_observables": [],
+        "constraints_only": true,
+        "notes": "If constraints_only=true, the output is an observational constraint rather than a direct measurable prediction."
+      }
+    ],
+    "reduction_outputs": {
+      "reduced_claims": [],
+      "assumption_ledger": [],
+      "testability_tags": [
+        "measurable_prediction",
+        "constraint_only",
+        "non_testable_at_present"
+      ]
+    }
+  },
+  "provenance": {
+    "created_in_repo": "trizel-ai/trizel-epistemic-engine",
+    "created_on_branch": "phase4/initialize-tcrl",
+    "phase3_dependency_branch": "phase3/initialize-analytic-engine",
+    "notes": "This TCP template is Phase-4 scaffolding only and introduces no scientific results."
+  },
+  "determinism": {
+    "no_timestamps": true,
+    "no_network_required": true,
+    "stable_ordering_required": true
+  }
+}
