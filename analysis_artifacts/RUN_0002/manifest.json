@@ -4,7 +4,7 @@
     "network": "disabled",
     "ordering": "lexicographic"
   },
-  "git_commit": "46256207a54759dbaa0bd9b79638771cb1d6994d",
+  "git_commit": "88485d62ae0d235a242946675eb64da7e304790b",
   "input_files_count": 4,
   "input_scope": "states/3I_ATLAS",
   "method_id": "P3.M1.STATE_COVERAGE_AUDIT",
