@@ -15,7 +15,7 @@
   },
   "status": "DECLARED",
   "outputs_expected": [
-    "analysis_artifacts/RUN_0001/run_manifest.json",
+    "analysis_artifacts/RUN_0001/manifest.json",
     "analysis_artifacts/RUN_0001/summary.json"
   ]
 }
