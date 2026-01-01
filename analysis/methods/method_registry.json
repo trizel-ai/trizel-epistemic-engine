@@ -5,15 +5,33 @@
       "method_id": "P3.M0.CONTRACT_ONLY",
       "name": "Contract-only validation run",
       "status": "active",
-      "scope": "Produces only manifest.json and summary.json without interpreting data.",
+      "scope": "Produces only run_manifest.json and summary.json without interpreting data.",
       "allowed_outputs": [
-        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/run_manifest.json",
         "analysis_artifacts/<RUN_ID>/summary.json"
       ],
       "prohibited": [
         "rankings",
         "scores",
         "interpretive conclusions",
+        "network access",
+        "timestamps"
+      ]
+    },
+    {
+      "method_id": "noop",
+      "name": "No-op baseline method",
+      "status": "active",
+      "scope": "Baseline deterministic run to validate pipeline wiring without performing any analysis.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/run_manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "analysis",
+        "interpretation",
+        "ranking",
+        "scoring",
         "network access",
         "timestamps"
       ]
