@@ -1,0 +1,21 @@
+{
+  "repository": "trizel-ai/trizel-epistemic-engine",
+  "phase": "Phase-3",
+  "run_id": "RUN_0001",
+  "purpose": "Baseline deterministic execution using NO-OP method (pipeline proof only)",
+  "execution_surface": "analysis/pipelines/run_analysis.py",
+  "input_scope": "states/3I_ATLAS",
+  "method_id": "noop",
+  "method_scope": "states/3I_ATLAS",
+  "determinism": {
+    "network_access": false,
+    "randomness": "disabled",
+    "ordering": "sorted_lexicographic",
+    "json_keys": "sorted"
+  },
+  "status": "DECLARED",
+  "outputs_expected": [
+    "analysis_artifacts/RUN_0001/run_manifest.json",
+    "analysis_artifacts/RUN_0001/summary.json"
+  ]
+}
