@@ -122,3 +122,5 @@ Phase-3 of the TRIZEL Epistemic Engine is closed for execution.
 All objectives are met.
 All contracts are satisfied.
 All artifacts are verifiable and immutable.
+reference : TRIZEL Epistemic Engine.
+https://doi.org/10.5281/zenodo.18117231
