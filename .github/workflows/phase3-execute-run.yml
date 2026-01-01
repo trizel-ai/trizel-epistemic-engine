@@ -1,4 +1,4 @@
-name: Phase-3: Execute Declared Run (Flag-Gated)
+name: "Phase-3: Execute Declared Run (Flag-Gated)"
 
 on:
   push:
@@ -19,26 +19,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: "Checkout repository"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
+      - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install minimal dependencies
+      - name: "Install minimal dependencies"
         run: |
           python -m pip install --upgrade pip
           pip install pytest
 
-      - name: Run Phase-3 unit tests (contract + smoke)
+      - name: "Run Phase-3 unit tests (contract + smoke)"
         run: |
           pytest -q tests/test_phase3_smoke.py tests/test_phase3_contract.py
 
-      - name: Gate — require RUN_0002 execution flag
+      - name: "Gate — require RUN_0002 execution flag"
         id: gate
         run: |
           FLAG="analysis_artifacts/RUN_0002/EXECUTE_IN_CI.flag"
@@ -48,12 +48,12 @@ jobs:
             echo "execute=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Skip — if execute flag not present
+      - name: "Skip — if execute flag not present"
         if: steps.gate.outputs.execute != 'true'
         run: |
           echo "EXECUTE_IN_CI.flag not present; skipping RUN_0002 execution."
 
-      - name: Gate — skip if outputs already exist
+      - name: "Gate — skip if outputs already exist"
         id: already_done
         if: steps.gate.outputs.execute == 'true'
         run: |
@@ -65,7 +65,7 @@ jobs:
             echo "done=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Execute RUN_0002 (STATE_COVERAGE_AUDIT)
+      - name: "Execute RUN_0002 (STATE_COVERAGE_AUDIT)"
         if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
         env:
           GIT_SHORT_SHA: "ci00000"
@@ -75,7 +75,7 @@ jobs:
             --method-id P3.M1.STATE_COVERAGE_AUDIT \
             --input-scope states/3I_ATLAS
 
-      - name: Debug — list produced artifacts
+      - name: "Debug — list produced artifacts"
         if: steps.gate.outputs.execute == 'true'
         run: |
           echo "Directory listing (analysis_artifacts/RUN_0002):"
@@ -84,7 +84,7 @@ jobs:
           echo "All files under analysis_artifacts:"
           find analysis_artifacts -maxdepth 3 -type f -print || true
 
-      - name: Enforce required outputs exist (audit gate)
+      - name: "Enforce required outputs exist (audit gate)"
         if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
         run: |
           MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
@@ -102,7 +102,7 @@ jobs:
 
           echo "OK: Required outputs exist."
 
-      - name: Commit RUN_0002 outputs (CI author)
+      - name: "Commit RUN_0002 outputs (CI author)"
         if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
         run: |
           MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
