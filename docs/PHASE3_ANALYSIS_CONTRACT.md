@@ -1,68 +1,93 @@
-# Phase-3 Analysis Contract (Deterministic, Offline)
+# Phase-3 Analysis Contract — TRIZEL (Authoritative)
 
 ## Repository
 trizel-ai/trizel-epistemic-engine
 
-## Inputs (Authoritative)
-Primary inputs (Phase-2 outputs):
-- states/ (including canonical registry file for 3I_ATLAS)
-- schema/epistemic_state.schema.json (validation reference only; MUST NOT be modified)
+## Phase
+Phase-3 — Analytical Engine (Deterministic, Offline, Audit-Safe)
 
-Provenance lock:
-- All interpretation must reference the Phase-1 ingest DOI only:
-  10.5281/zenodo.18012859
+## Authority and Execution Channel
+All Phase-3 execution MUST occur only on the Phase-3 canonical branch and PR.
+Phase-2 artifacts are immutable as defined in:
+docs/PHASE2_COMPLETION.md
 
-## Output Locations (Exclusive)
-All generated outputs MUST be written only to:
-- analysis_artifacts/
-- releases/
+## Inputs (Exclusive)
+Phase-3 analysis is allowed to read ONLY:
+1) Phase-2 epistemic state files under:
+states/3I_ATLAS/
+2) Phase-2 schema and validation surfaces (read-only):
+schema/
+src/epistemic/
+3) Phase-3 analysis code surface:
+analysis/
 
-## Determinism Requirements (Non-Negotiable)
-1) No network calls during analysis execution (CI or local).
-2) Stable ordering everywhere:
-   - sort keys
-   - sort lists
-   - stable file traversal
-3) Fixed formatting:
-   - UTF-8
-   - LF newlines
-4) Hashing:
-   - All produced files MUST be listed in a manifest with SHA256.
-5) Reproducibility:
-   - Same git commit + same inputs => byte-identical outputs.
+No other input sources are permitted during CI runs.
 
-## Analysis Levels (Defined)
-Level 0 — Structural Audit
-- Validate registry and state structural invariants (beyond schema).
-- Detect missing fields, invalid cross-references, forbidden keys.
+## Determinism Rules (Non-Negotiable)
+1) No network access (CI and default execution).
+2) Stable ordering:
+   - Files MUST be processed in lexicographic order.
+   - Output JSON MUST use sorted keys.
+3) No timestamps, randomness, or system-dependent values in outputs.
+4) Any run MUST be reproducible from the same git commit + same inputs.
 
-Level 1 — Descriptive Statistics (Data Analysis, Non-Interpretive)
-- Counts, distributions, timelines, completeness metrics.
-- No ranking of theories, no “best interpretation”.
-- Only descriptive outputs derived from existing epistemic fields.
+## Outputs (Exclusive, Write-Only)
+Phase-3 MUST write outputs ONLY to:
+1) analysis_artifacts/
+2) releases/
 
-Level 2 — Consistency Checks (Formal, Rule-Based)
-- Contradiction detection between states (rule-defined).
-- Trace provenance consistency and evidence linkage integrity.
+Outputs MUST NOT modify:
+- states/
+- schema/
+- src/epistemic/
+- docs/PHASE2_*
 
-Level 3 — Release Packaging (Deterministic)
-- Bundle results + manifest into releases/<RELEASE_ID>/.
+## Run Identity (Deterministic Run ID)
+Each run MUST declare:
+- RUN_ID: user-supplied stable identifier (string)
+- METHOD_ID: one value from analysis/methods/method_registry.json
+- INPUT_SCOPE: fixed logical target (e.g., "states/3I_ATLAS")
 
-## Forbidden (Explicit)
-- Any modification to Phase-2 artifacts.
-- Any subjective theory selection, scoring, or interpretive ranking unless explicitly declared later
-  in a separate Phase-3 amendment file with version bump.
-- Any reliance on live web data in the core pipeline.
+RUN_ID MUST NOT be auto-generated.
 
-## Canonical Run ID Format
-RUN_ID MUST be:
-YYYYMMDD_HHMMSSZ__<SHORT_GIT_SHA>
+## Minimal Required Outputs for Any Run
+For any successful run, the following MUST exist:
 
-Example:
-20260101_120000Z__a1b2c3d
+1) analysis_artifacts/<RUN_ID>/manifest.json
+2) analysis_artifacts/<RUN_ID>/summary.json
 
-## Minimum Required Outputs Per Run
-analysis_artifacts/<RUN_ID>/manifest.json
-analysis_artifacts/<RUN_ID>/reports/summary.md
-analysis_artifacts/<RUN_ID>/tables/state_inventory.csv
-analysis_artifacts/<RUN_ID>/tables/field_completeness.csv
+No other outputs are required until a specific method defines them.
+
+## Manifest Contract (Exact Fields)
+manifest.json MUST contain exactly these top-level fields:
+
+- repository
+- git_commit
+- phase
+- run_id
+- method_id
+- input_scope
+- input_files_count
+- determinism
+- outputs
+
+Where:
+- determinism MUST be an object that asserts:
+  - network: "disabled"
+  - ordering: "lexicographic"
+  - json_keys: "sorted"
+- outputs MUST list produced file paths relative to repository root.
+
+## Summary Contract (Exact Fields)
+summary.json MUST contain exactly these top-level fields:
+
+- run_id
+- method_id
+- analyzed_states_count
+- notes
+
+No scores, rankings, or interpretive conclusions are allowed in summary.json unless explicitly authorized by a Phase-3 method specification.
+
+## Effective Lock
+This contract is authoritative for Phase-3.
+Any analytical method MUST conform to this contract before producing additional artifacts.
