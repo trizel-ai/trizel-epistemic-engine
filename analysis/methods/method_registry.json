@@ -36,6 +36,25 @@
         "network access",
         "timestamps"
       ]
+    },
+    {
+      "method_id": "P3.M1.STATE_COVERAGE_AUDIT",
+      "name": "State coverage audit",
+      "status": "active",
+      "scope": "Counts and verifies the presence of state files under the declared input scope without inspecting or interpreting their contents.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "analysis",
+        "interpretation",
+        "ranking",
+        "scoring",
+        "field semantics",
+        "network access",
+        "timestamps"
+      ]
     }
   ]
 }
