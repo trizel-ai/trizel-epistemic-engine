@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,32 +33,80 @@ jobs:
         run: |
           pytest -q tests/test_phase3_smoke.py tests/test_phase3_contract.py
 
-      - name: Check execution flag
+      - name: Gate - require RUN_0002 execution flag
         id: gate
         run: |
-          if [ -f analysis_artifacts/RUN_0002/EXECUTE_IN_CI.flag ]; then
-            echo "execute=true" >> $GITHUB_OUTPUT
+          FLAG="analysis_artifacts/RUN_0002/EXECUTE_IN_CI.flag"
+          if [ -f "$FLAG" ]; then
+            echo "execute=true" >> "$GITHUB_OUTPUT"
           else
-            echo "execute=false" >> $GITHUB_OUTPUT
+            echo "execute=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Skip - if execute flag not present
+        if: steps.gate.outputs.execute != 'true'
+        run: |
+          echo "RUN_0002 execution flag not present. Skipping execution."
+          exit 0
 
       - name: Execute RUN_0002
         if: steps.gate.outputs.execute == 'true'
         env:
-          GIT_SHORT_SHA: ci00000
+          GIT_SHORT_SHA: "ci00000"
         run: |
           python -m analysis.pipelines.run_analysis \
             --run-id RUN_0002 \
             --method-id P3.M1.STATE_COVERAGE_AUDIT \
             --input-scope states/3I_ATLAS
 
-      - name: Commit outputs
+      - name: Debug - list produced artifacts
         if: steps.gate.outputs.execute == 'true'
         run: |
+          echo "---- pwd ----"
+          pwd
+          echo "---- ls -la ----"
+          ls -la
+          echo "---- ls analysis_artifacts ----"
+          ls -la analysis_artifacts || true
+          echo "---- ls analysis_artifacts/RUN_0002 ----"
+          ls -la analysis_artifacts/RUN_0002 || true
+          echo "---- find analysis_artifacts (json only) ----"
+          find analysis_artifacts -maxdepth 5 -type f -name "*.json" -print || true
+          echo "---- find analysis_artifacts (all files) ----"
+          find analysis_artifacts -maxdepth 5 -type f -print || true
+          echo "---- git status ----"
+          git status --porcelain || true
+
+      - name: Enforce required outputs exist (audit gate)
+        if: steps.gate.outputs.execute == 'true'
+        run: |
+          MANIFEST="analysis_artifacts/RUN_0002/run_manifest.json"
+          SUMMARY="analysis_artifacts/RUN_0002/summary.json"
+
+          if [ ! -f "$MANIFEST" ] || [ ! -f "$SUMMARY" ]; then
+            echo "ERROR: Expected outputs missing for RUN_0002"
+            echo "Expected:"
+            echo " - $MANIFEST"
+            echo " - $SUMMARY"
+            echo "Directory listing:"
+            ls -la analysis_artifacts/RUN_0002 || true
+            echo "All files under analysis_artifacts:"
+            find analysis_artifacts -maxdepth 5 -type f -print || true
+            exit 1
+          fi
+
+          echo "OK: Required outputs exist."
+
+      - name: Commit RUN_0002 outputs
+        if: steps.gate.outputs.execute == 'true'
+        run: |
+          MANIFEST="analysis_artifacts/RUN_0002/run_manifest.json"
+          SUMMARY="analysis_artifacts/RUN_0002/summary.json"
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add analysis_artifacts/RUN_0002/run_manifest.json analysis_artifacts/RUN_0002/summary.json
+          git add "$MANIFEST" "$SUMMARY"
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
