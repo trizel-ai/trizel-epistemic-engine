@@ -34,7 +34,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
-      - name: Run Phase-3 tests (contract + smoke)
+      - name: Run Phase-3 unit tests (contract + smoke)
         run: |
           pytest -q tests/test_phase3_smoke.py tests/test_phase3_contract.py
 
@@ -51,7 +51,7 @@ jobs:
       - name: Skip — if execute flag not present
         if: steps.gate.outputs.execute != 'true'
         run: |
-          echo "EXECUTE_IN_CI.flag not found. Skipping RUN_0002."
+          echo "EXECUTE_IN_CI.flag not present; skipping RUN_0002 execution."
 
       - name: Gate — skip if outputs already exist
         id: already_done
@@ -78,8 +78,9 @@ jobs:
       - name: Debug — list produced artifacts
         if: steps.gate.outputs.execute == 'true'
         run: |
-          echo "Listing analysis_artifacts/RUN_0002:"
+          echo "Directory listing (analysis_artifacts/RUN_0002):"
           ls -la analysis_artifacts/RUN_0002 || true
+          echo ""
           echo "All files under analysis_artifacts:"
           find analysis_artifacts -maxdepth 3 -type f -print || true
 
@@ -92,12 +93,14 @@ jobs:
           if [ ! -f "$MANIFEST" ] || [ ! -f "$SUMMARY" ]; then
             echo "ERROR: Expected outputs missing for RUN_0002"
             echo "Expected:"
-            echo " - $MANIFEST"
-            echo " - $SUMMARY"
+            echo "  - $MANIFEST"
+            echo "  - $SUMMARY"
             echo "Directory listing:"
             ls -la analysis_artifacts/RUN_0002 || true
             exit 1
           fi
+
+          echo "OK: Required outputs exist."
 
       - name: Commit RUN_0002 outputs (CI author)
         if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
@@ -105,7 +108,7 @@ jobs:
           MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
           SUMMARY="analysis_artifacts/RUN_0002/summary.json"
 
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add "$MANIFEST" "$SUMMARY"
