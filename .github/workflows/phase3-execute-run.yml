@@ -64,23 +64,17 @@ jobs:
         run: |
           echo "---- pwd ----"
           pwd
-          echo "---- ls -la ----"
-          ls -la
-          echo "---- ls analysis_artifacts ----"
-          ls -la analysis_artifacts || true
           echo "---- ls analysis_artifacts/RUN_0002 ----"
           ls -la analysis_artifacts/RUN_0002 || true
           echo "---- find analysis_artifacts (json only) ----"
           find analysis_artifacts -maxdepth 5 -type f -name "*.json" -print || true
-          echo "---- find analysis_artifacts (all files) ----"
-          find analysis_artifacts -maxdepth 5 -type f -print || true
           echo "---- git status ----"
           git status --porcelain || true
 
       - name: Enforce required outputs exist (audit gate)
         if: steps.gate.outputs.execute == 'true'
         run: |
-          MANIFEST="analysis_artifacts/RUN_0002/run_manifest.json"
+          MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
           SUMMARY="analysis_artifacts/RUN_0002/summary.json"
 
           if [ ! -f "$MANIFEST" ] || [ ! -f "$SUMMARY" ]; then
@@ -100,7 +94,7 @@ jobs:
       - name: Commit RUN_0002 outputs
         if: steps.gate.outputs.execute == 'true'
         run: |
-          MANIFEST="analysis_artifacts/RUN_0002/run_manifest.json"
+          MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
           SUMMARY="analysis_artifacts/RUN_0002/summary.json"
 
           git config user.name "github-actions[bot]"
@@ -113,5 +107,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Phase-3: Execute RUN_0002 via CI"
+          git commit -m "Phase-3: Commit RUN_0002 outputs via CI"
           git push
