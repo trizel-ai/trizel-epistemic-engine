@@ -1,0 +1,18 @@
+{
+  "repository": "trizel-ai/trizel-epistemic-engine",
+  "git_commit": "UNKNOWN_COMMIT",
+  "phase": "Phase-3",
+  "run_id": "RUN_0001",
+  "method_id": "noop",
+  "input_scope": "states/3I_ATLAS",
+  "input_files_count": "<0>",
+  "determinism": {
+    "network": "disabled",
+    "ordering": "lexicographic",
+    "json_keys": "sorted"
+  },
+  "outputs": [
+    "analysis_artifacts/RUN_0001/manifest.json",
+    "analysis_artifacts/RUN_0001/summary.json"
+  ]
+}
