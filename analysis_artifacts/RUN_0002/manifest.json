@@ -1,0 +1,18 @@
+{
+  "determinism": {
+    "json_keys": "sorted",
+    "network": "disabled",
+    "ordering": "lexicographic"
+  },
+  "git_commit": "f945311676815ba43e867adb368394f07f0f455a",
+  "input_files_count": 4,
+  "input_scope": "states/3I_ATLAS",
+  "method_id": "P3.M1.STATE_COVERAGE_AUDIT",
+  "outputs": [
+    "analysis_artifacts/RUN_0002/manifest.json",
+    "analysis_artifacts/RUN_0002/summary.json"
+  ],
+  "phase": "Phase-3",
+  "repository": "trizel-ai/trizel-epistemic-engine",
+  "run_id": "RUN_0002"
+}
