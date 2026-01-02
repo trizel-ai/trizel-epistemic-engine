@@ -23,10 +23,10 @@ Phase-4 consumes only TCRL outputs (TCP artifacts) plus ingest-linked observatio
 ## 2) Prohibited Content (Absolute)
 
 The following are forbidden anywhere in Phase-4 (code, docs, tests, artifacts):
-- physics endorsements, interpretive superiority claims, grand-unification superiority language
-- •	totalizing-theory superiority language
-	•	universal-theory superiority language
-	•	absolute-framework superiority language
+- physics endorsements, interpretive dominance claims, grand-unification dominance language
+- • totalizing-theory dominance language
+  • universal-theory dominance language
+  • absolute-framework dominance language
 - theory ranking or model selection as an outcome
 - hidden assumptions without explicit declaration
 - timestamps used as epistemic or evaluative evidence
