@@ -1,0 +1,60 @@
+{
+  "registry_version": "1.0",
+  "methods": [
+    {
+      "method_id": "P3.M0.CONTRACT_ONLY",
+      "name": "Contract-only validation run",
+      "status": "active",
+      "scope": "Produces only manifest.json and summary.json without interpreting data.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "rankings",
+        "scores",
+        "interpretive conclusions",
+        "analysis",
+        "network access",
+        "timestamps"
+      ]
+    },
+    {
+      "method_id": "noop",
+      "name": "No-op baseline method",
+      "status": "active",
+      "scope": "Baseline deterministic run to validate pipeline wiring without performing any analysis.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "analysis",
+        "interpretation",
+        "ranking",
+        "scoring",
+        "network access",
+        "timestamps"
+      ]
+    },
+    {
+      "method_id": "P3.M1.STATE_COVERAGE_AUDIT",
+      "name": "State coverage audit",
+      "status": "active",
+      "scope": "Counts and verifies the presence of state files under the declared input scope without inspecting or interpreting their contents.",
+      "allowed_outputs": [
+        "analysis_artifacts/<RUN_ID>/manifest.json",
+        "analysis_artifacts/<RUN_ID>/summary.json"
+      ],
+      "prohibited": [
+        "analysis",
+        "interpretation",
+        "ranking",
+        "scoring",
+        "field semantics",
+        "network access",
+        "timestamps"
+      ]
+    }
+  ]
+}

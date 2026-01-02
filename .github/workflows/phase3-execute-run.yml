@@ -1,0 +1,122 @@
+name: "Phase-3: Execute Declared Run (Flag-Gated)"
+
+on:
+  push:
+    branches:
+      - phase3/initialize-analytic-engine
+    paths:
+      - "analysis_artifacts/**"
+      - "analysis/**"
+      - "tests/**"
+      - ".github/workflows/phase3-execute-run.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  execute_declared_run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: "Install minimal dependencies"
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: "Run Phase-3 unit tests (contract + smoke)"
+        run: |
+          pytest -q tests/test_phase3_smoke.py tests/test_phase3_contract.py
+
+      - name: "Gate — require RUN_0002 execution flag"
+        id: gate
+        run: |
+          FLAG="analysis_artifacts/RUN_0002/EXECUTE_IN_CI.flag"
+          if [ -f "$FLAG" ]; then
+            echo "execute=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "execute=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Skip — if execute flag not present"
+        if: steps.gate.outputs.execute != 'true'
+        run: |
+          echo "EXECUTE_IN_CI.flag not present; skipping RUN_0002 execution."
+
+      - name: "Gate — skip if outputs already exist"
+        id: already_done
+        if: steps.gate.outputs.execute == 'true'
+        run: |
+          MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
+          SUMMARY="analysis_artifacts/RUN_0002/summary.json"
+          if [ -f "$MANIFEST" ] && [ -f "$SUMMARY" ]; then
+            echo "done=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "done=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Execute RUN_0002 (STATE_COVERAGE_AUDIT)"
+        if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
+        env:
+          GIT_SHORT_SHA: "ci00000"
+        run: |
+          python -m analysis.pipelines.run_analysis \
+            --run-id RUN_0002 \
+            --method-id P3.M1.STATE_COVERAGE_AUDIT \
+            --input-scope states/3I_ATLAS
+
+      - name: "Debug — list produced artifacts"
+        if: steps.gate.outputs.execute == 'true'
+        run: |
+          echo "Directory listing (analysis_artifacts/RUN_0002):"
+          ls -la analysis_artifacts/RUN_0002 || true
+          echo ""
+          echo "All files under analysis_artifacts:"
+          find analysis_artifacts -maxdepth 3 -type f -print || true
+
+      - name: "Enforce required outputs exist (audit gate)"
+        if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
+        run: |
+          MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
+          SUMMARY="analysis_artifacts/RUN_0002/summary.json"
+
+          if [ ! -f "$MANIFEST" ] || [ ! -f "$SUMMARY" ]; then
+            echo "ERROR: Expected outputs missing for RUN_0002"
+            echo "Expected:"
+            echo "  - $MANIFEST"
+            echo "  - $SUMMARY"
+            echo "Directory listing:"
+            ls -la analysis_artifacts/RUN_0002 || true
+            exit 1
+          fi
+
+          echo "OK: Required outputs exist."
+
+      - name: "Commit RUN_0002 outputs (CI author)"
+        if: steps.gate.outputs.execute == 'true' && steps.already_done.outputs.done == 'false'
+        run: |
+          MANIFEST="analysis_artifacts/RUN_0002/manifest.json"
+          SUMMARY="analysis_artifacts/RUN_0002/summary.json"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add "$MANIFEST" "$SUMMARY"
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Phase-3: Execute RUN_0002 (STATE_COVERAGE_AUDIT) via CI"
+          git push
