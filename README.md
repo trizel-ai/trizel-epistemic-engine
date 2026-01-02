@@ -150,25 +150,32 @@ This repository **documents** those constraints; it does not relax them.
 ## Visual Summary — Conceptual Only
 
 The diagram below is **non-operational**, **non-executive**, and **purely conceptual**.
-
 flowchart TB
 
-    P1["Phase-1<br/>Conceptual & Epistemic Framing"]
-    P2["Phase-2<br/>Epistemic State Engine"]
-    P3["Phase-3<br/>Deterministic Execution & Verification"]
-    P4["Phase-4<br/>Governance & Contract Enforcement"]
+%% =========================================================
+%% Conceptual Overview Only
+%% Non-operational • Non-executive • Declarative
+%% This diagram expresses structure, not execution.
+%% =========================================================
 
-    R_CORE["trizel-epistemic-engine<br/>(core governance & execution)"]
-    R_MON["trizel-monitor<br/>(ingest & data snapshotting)"]
-    R_DAILY["AUTO-DZ-ACT-3I-ATLAS-DAILY<br/>(daily public records)"]
-    R_GATE["trizel-phase4-gateway<br/>(contract & CI isolation)"]
+P1["Phase-1<br/>Conceptual Precursor"]
+P2["Phase-2<br/>Epistemic State Engine"]
+P3["Phase-3<br/>Deterministic Execution Control"]
+P4["Phase-4<br/>Governance & Evaluation Gate"]
 
-    P1 --> P2
-    P2 --> P3
-    P3 --> P4
+R_CORE["trizel-epistemic-engine<br/>(core epistemic framework)"]
+R_MON["trizel-monitor<br/>(scientific ingest layer)"]
+R_DAILY["AUTO-DZ-ACT-3I-ATLAS-DAILY<br/>(daily data snapshots)"]
+R_GATE["trizel-phase4-gateway<br/>(evaluation governance layer)"]
 
-    P2 --> R_CORE
-    P3 --> R_CORE
-    P4 --> R_GATE
+%% Phase progression (conceptual sequence only)
+P1 --> P2
+P2 --> P3
+P3 --> P4
 
-    R_MON --> R_DAILY
+%% Repository association (structural, not functional)
+P2 --- R_CORE
+P3 --- R_CORE
+P4 --- R_GATE
+
+R_MON --- R_DAIL
