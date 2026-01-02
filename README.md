@@ -163,7 +163,9 @@ R_MON["trizel-monitor<br/>(scientific ingest layer)"]
 R_DAILY["AUTO-DZ-ACT-3I-ATLAS-DAILY<br/>(daily data snapshots)"]
 R_GATE["trizel-phase4-gateway<br/>(evaluation governance layer)"]
 
-P1 --> P2 --> P3 --> P4
+P1 --> P2
+P2 --> P3
+P3 --> P4
 
 P2 --> R_CORE
 P3 --> R_CORE
