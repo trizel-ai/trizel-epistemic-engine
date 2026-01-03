@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema/phase4/method_registry.schema.json",
+  "title": "Phase-4 Method Registry Schema (Non-Executive)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_version", "methods"],
+  "properties": {
+    "registry_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["method_id", "name", "status", "scope", "prohibited"],
+        "properties": {
+          "method_id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["active", "inactive"] },
+          "scope": { "type": "string", "minLength": 1 },
+          "prohibited": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}
