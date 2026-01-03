@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema/tcrl/tcp.schema.json",
+  "title": "TCRL TCP Schema (Comprehension and Reduction Only)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tcp_version",
+    "theory_id",
+    "theory_name",
+    "source",
+    "entities",
+    "axioms",
+    "measurement_concept",
+    "phenomenon_definition",
+    "reduction_outputs",
+    "tcrl_scope_notice"
+  ],
+  "properties": {
+    "tcp_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "theory_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "theory_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "citation"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "citation": { "type": "string", "minLength": 1 },
+        "doi": { "type": "string", "minLength": 1 }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "axioms": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "measurement_concept": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phenomenon_definition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reduction_outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_observables",
+        "testable_claims",
+        "constraints_only",
+        "non_testable_claims"
+      ],
+      "properties": {
+        "candidate_observables": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "testable_claims": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "constraints_only": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "non_testable_claims": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "tcrl_scope_notice": {
+      "type": "string",
+      "const": "Comprehension/reduction only; no evaluation, no validity claims."
+    }
+  }
+}
