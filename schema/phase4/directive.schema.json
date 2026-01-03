@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schema/phase4/directive.schema.json",
+  "title": "Phase-4 Directive Schema (Governance Only)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "directive_version",
+    "directive_id",
+    "scope_notice",
+    "inputs_allowed",
+    "operations_prohibited",
+    "outputs_prohibited"
+  ],
+  "properties": {
+    "directive_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "directive_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_notice": {
+      "type": "string",
+      "const": "Governance-only directive; no execution, no evaluation, no inference."
+    },
+    "inputs_allowed": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "operations_prohibited": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "outputs_prohibited": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
