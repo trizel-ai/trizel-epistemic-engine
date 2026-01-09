@@ -1,3 +1,11 @@
+## Repository Header (Mandatory)
+- **Layer:** Gateway / Interface
+- **Status:** Canonical
+- **Governing Authority:** https://github.com/trizel-ai/trizel-core (Governance)
+- **Charter Source:** https://github.com/trizel-ai/trizel-epistemic-engine (Constitution)
+
+---
+
 # TRIZEL Epistemic Engine (Archival Repository)
 
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
@@ -18,6 +26,22 @@ The TRIZEL Epistemic Engine was built on the principle:
 This principle governed the project across its bounded phases.  
 As of Phase-5 closeout, the project is concluded as a governance instance.  
 The principle remains part of the historical scientific record.
+
+---
+
+## Scope
+
+This repository acts as a **gateway and interface layer** within the TRIZEL ecosystem:
+
+**What this repository does:**
+- Provides routing and navigation to TRIZEL governance documents
+- Serves as an interface to the epistemic framework structure
+- Maintains archival records for audit and citation purposes
+
+**What this repository does NOT do:**
+- Does not provide authoritative scientific definitions or interpretations
+- Does not enforce theoretical positions or claims
+- Does not exercise execution or governance authority over scientific content
 
 ---
 
@@ -84,6 +108,17 @@ This repository preserves the methodological and governance contributions
 of the TRIZEL program for historical study, audit, and citation.  
 
 The project makes no claims of interpretation, endorsement, or theoretical superiority.
+
+---
+
+## Compliance
+
+This repository operates under TRIZEL governance standards as defined in:
+
+- **Governance Framework:** https://github.com/trizel-ai/trizel-core/blob/main/docs/GOVERNANCE.md
+- **Registry Standards:** https://github.com/trizel-ai/trizel-core/blob/main/docs/REGISTRY.md
+
+All content and structure within this repository adheres to the governance contracts and registry requirements specified in the canonical trizel-core repository.
 
 ---
 
