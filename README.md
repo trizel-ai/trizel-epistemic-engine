@@ -1,5 +1,8 @@
 # TRIZEL Epistemic Engine (Archival Repository)
 
+**Repository Classification:** Archive / Historical  
+**Governance Authority:** [trizel-core](https://github.com/trizel-ai/trizel-core) (Canonical Governance & Charter)
+
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
 
 This repository serves as the **archival record** of that completed program.  
@@ -64,24 +67,35 @@ of this phase sequence.
 ## Repository Ecosystem (Historical Reference Only)
 
 During its active lifecycle, the TRIZEL program included supporting repositories.  
+All repositories operate under the **canonical governance framework** defined in [trizel-core](https://github.com/trizel-ai/trizel-core).
+
 All listed repositories now exist for archival reference only:
 
-| Repository                        | Role |
-|----------------------------------|------|
-| trizel-epistemic-engine           | Core epistemic engine and governance framework (this repository). |
-| trizel-monitor                    | Scientific ingest layer and snapshot integrity. |
-| AUTO-DZ-ACT-3I-ATLAS-DAILY        | Immutable observational data snapshots. |
-| AUTO-DZ-ACT-ANALYSIS-3I-ATLAS     | Verification-first analytical experiments (archived). |
-| trizel-AI                         | Experimental AI interfaces (non-authoritative, historical). |
+| Repository                        | Role (Historical) | Taxonomy Classification |
+|----------------------------------|------|-------------------------|
+| trizel-core                       | Canonical governance and charter repository | Governance & Charter |
+| trizel-epistemic-engine           | Core epistemic engine and governance framework (this repository) | Archive / Historical |
+| trizel-monitor                    | Scientific ingest layer and snapshot integrity | Data & Observation |
+| AUTO-DZ-ACT-3I-ATLAS-DAILY        | Immutable observational data snapshots | Data & Observation |
+| AUTO-DZ-ACT-ANALYSIS-3I-ATLAS     | Verification-first analytical experiments (archived) | Analysis & Inference |
+| trizel-AI                         | Experimental AI interfaces (non-authoritative, historical) | Exploratory / Non-Canonical |
 
-No repository listed above carries execution or governance authority.
+No repository listed above carries execution or governance authority.  
+Current governance is defined exclusively by [trizel-core](https://github.com/trizel-ai/trizel-core).
 
 ---
 
-## Relationship to the Scientific Record
+## Relationship to the TRIZEL Governance Constitution
 
-This repository preserves the methodological and governance contributions  
-of the TRIZEL program for historical study, audit, and citation.  
+This repository was developed within the **TRIZEL epistemic framework**, as defined by the canonical governance repository [trizel-core](https://github.com/trizel-ai/trizel-core).
+
+The TRIZEL governance constitution establishes:
+- **Epistemic Pipeline:** Observation → Analysis → Inference → Interpretation → Probabilistic Evaluation → Open Publication & Visualization
+- **Repository Taxonomy:** Clear categorization of governance, data, analysis, visualization, exploratory, and archival repositories
+- **Separation of Concerns:** Strict boundaries between observation, analysis, inference, and interpretation
+- **Canonical Authority:** [trizel-core](https://github.com/trizel-ai/trizel-core) as the root governance and charter repository
+
+As an **Archive / Historical** repository, this record preserves the methodological and governance contributions of the TRIZEL Epistemic Engine program for historical study, audit, and citation.
 
 The project makes no claims of interpretation, endorsement, or theoretical superiority.
 
