@@ -1,6 +1,7 @@
-# Phase Transition Checklist
+# PHASE-5 TRANSITION CHECKLIST
 
 **Repository**: trizel-ai/trizel-epistemic-engine  
+**Phase**: Phase-5 Planning and Governance Documentation  
 **Purpose**: Define requirements for phase transitions, freezes, and unfreezes  
 **Status**: Planning Documentation (Authoritative)
 
@@ -141,6 +142,7 @@ Before freezing a phase, the following requirements **must** be satisfied:
 ## 3. Unfreezing a Frozen Phase (Exceptional)
 
 Unfreezing a phase is **rare and discouraged**. It should only occur when:
+
 - A critical bug or security vulnerability is discovered
 - A governance error requires correction
 - An explicit, documented need arises
@@ -187,7 +189,7 @@ Unfreezing a phase is **rare and discouraged**. It should only occur when:
 
 ## 4. Cross-Phase Dependencies
 
-When a new phase depends on a frozen phase:
+When a new phase depends on a frozen phase, the following requirements **must** be satisfied:
 
 - [ ] **Dependency is documented explicitly** (in phase directive or build plan)
 - [ ] **Frozen phase is referenced by tag or commit SHA** (immutable reference)
@@ -214,21 +216,21 @@ When a new phase depends on a frozen phase:
 
 ### Standard Phase Lifecycle
 
-1. **Initialization** → Open new phase (Section 1)
-2. **Development** → Implement phase objectives (governed by phase directive)
-3. **Completion** → Freeze phase (Section 2)
-4. **Archival** → Tag and publish (Section 2.3)
-5. **Reference** → Cite frozen phase in future work (Section 4)
+1. **Initialization**: Open new phase (Section 1)
+2. **Development**: Implement phase objectives (governed by phase directive)
+3. **Completion**: Freeze phase (Section 2)
+4. **Archival**: Tag and publish (Section 2.3)
+5. **Reference**: Cite frozen phase in future work (Section 4)
 
 ### Exceptional Lifecycle (Rare)
 
-1. **Initialization** → Open new phase
-2. **Development** → Implement phase objectives
-3. **Completion** → Freeze phase
-4. **Critical Issue Discovered** → Unfreeze phase (Section 3)
-5. **Modification** → Fix issue (surgical changes only)
-6. **Re-Freeze** → Re-freeze phase (Section 3.3)
-7. **Archival Update** → Update tags and publications
+1. **Initialization**: Open new phase
+2. **Development**: Implement phase objectives
+3. **Completion**: Freeze phase
+4. **Critical Issue Discovered**: Unfreeze phase (Section 3)
+5. **Modification**: Fix issue (surgical changes only)
+6. **Re-Freeze**: Re-freeze phase (Section 3.3)
+7. **Archival Update**: Update tags and publications
 
 ---
 
@@ -237,6 +239,7 @@ When a new phase depends on a frozen phase:
 This checklist is **mandatory** for all phase transitions.
 
 Violations of this checklist result in:
+
 - Immediate rejection of PRs
 - Requirement to revert non-compliant changes
 - Documentation of the violation and corrective action

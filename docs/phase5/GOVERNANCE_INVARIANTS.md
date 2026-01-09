@@ -1,6 +1,7 @@
-# Phase-5 GOVERNANCE INVARIANTS
+# PHASE-5 GOVERNANCE INVARIANTS
 
 **Repository**: trizel-ai/trizel-epistemic-engine  
+**Phase**: Phase-5 Planning and Governance Documentation  
 **Status**: Planning Documentation (Authoritative)  
 **Scope**: Cross-Phase Governance Constraints
 
@@ -190,16 +191,19 @@ These invariants exist to ensure:
 ## Enforcement Mechanisms
 
 ### Contract Testing
+
 - Governance invariants are enforced via automated contract tests
 - CI gates prevent merging of contract-violating code
 - Contract tests must align with canonical directives
 
 ### Documentation Reviews
+
 - All phase documentation must be reviewed for invariant compliance
 - New phases must explicitly acknowledge and honor existing invariants
 - Invariant violations trigger immediate rejection
 
 ### Freeze Protocols
+
 - Frozen phases are protected from modification
 - Changes to frozen phases require governance unfreeze (documented)
 - Unfreezes are rare and must be justified explicitly
@@ -211,6 +215,7 @@ These invariants exist to ensure:
 Phase-specific governance documents (e.g., `PHASE4_GOVERNANCE_FREEZE.md`) **extend** but do not **replace** these invariants.
 
 Where conflicts arise:
+
 1. Core invariants take precedence
 2. Phase-specific rules may add constraints but not remove them
 3. Conflicts must be resolved explicitly and documented
@@ -222,6 +227,7 @@ Where conflicts arise:
 These invariants are **authoritative and persistent**.
 
 To modify an invariant:
+
 1. Propose the change explicitly with justification
 2. Document the impact on all existing phases
 3. Update all affected phase directives and contracts

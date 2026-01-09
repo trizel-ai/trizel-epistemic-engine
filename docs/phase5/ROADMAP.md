@@ -1,4 +1,4 @@
-# Phase-5 ROADMAP
+# PHASE-5 ROADMAP
 
 **Repository**: trizel-ai/trizel-epistemic-engine  
 **Phase**: Phase-5 Planning and Governance Documentation  
@@ -132,6 +132,14 @@ Phase-5 provides:
 Any pull request or commit introducing code, schemas, validators, or execution logic under Phase-5 violates the phase scope and must be rejected.
 
 Phase-5 is strictly bounded to **documentation and governance planning only**.
+
+---
+
+## Declaration
+
+This roadmap is effective immediately and defines the scope and objectives for Phase-5.
+
+All Phase-5 work must comply with this roadmap or explicitly document deviations (with governance approval).
 
 ---
 
