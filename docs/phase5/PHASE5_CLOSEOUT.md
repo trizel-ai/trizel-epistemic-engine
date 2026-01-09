@@ -1,5 +1,7 @@
 # PHASE-5 Closeout Declaration
 
+**Governance Authority:** [trizel-core](https://github.com/trizel-ai/trizel-core) (Canonical Governance & Charter Repository)
+
 ## 1. Confirmation of Finalization
 - **Phase-5 baseline** (`phase-5-planning`): Finalized, immutable, auditable.
 - **Phase-5 Revision-1** (`phase-5-planning-r1`): Finalized, immutable, auditable.
@@ -25,6 +27,11 @@
 - No execution.
 - No **Phase-6** initiation.
 - No future roadmaps or planning artifacts.
+
+## 6. Governance Alignment
+- This repository operates under the **TRIZEL epistemic framework** as defined by [trizel-core](https://github.com/trizel-ai/trizel-core).
+- Repository classification: **Archive / Historical** per the canonical taxonomy.
+- All governance authority resides with [trizel-core](https://github.com/trizel-ai/trizel-core).
 
 ---
 
