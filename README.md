@@ -1,174 +1,98 @@
-# TRIZEL Epistemic Engine
+# TRIZEL Epistemic Engine (Archival Repository)
 
-The TRIZEL Epistemic Engine is a **multi-phase research program** focused on building an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
+The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
 
-This repository serves as a **public cognitive interface** to that program.  
-It is **not** a complete mirror of all execution layers, historical prototypes, or analytical pipelines.
+This repository serves as the **archival record** of that completed program.  
+It is no longer a live project and exists strictly in an immutable state for audit, citation, or scholarly review.  
 
-The emphasis of TRIZEL is **governance before interpretation**, **verification before explanation**, and **methodological restraint over theoretical claims**.
+Closure applies to governance authority, not to scientific possibility.
 
 ---
 
-## Project Philosophy (High-Level)
+## Project Philosophy (Historical Context)
 
-TRIZEL is built on a single guiding principle:
+The TRIZEL Epistemic Engine was built on the principle:
 
 > Scientific systems must be able to **refuse understanding** before they claim it.
 
-Accordingly, the project is organized into **strictly bounded phases**, each designed to answer a different epistemic question, and each prevented from exceeding its declared authority.
+This principle governed the project across its bounded phases.  
+As of Phase-5 closeout, the project is concluded as a governance instance.  
+The principle remains part of the historical scientific record.
 
 ---
 
-## Project Phases — High-Level Overview
+## Project Phases — Concluded Governance Framework
+
+The TRIZEL Epistemic Engine was structured into strictly bounded phases,  
+each operating under explicit and auditable authority.
 
 ### Phase-1 — Conceptual Precursor (External)
-**Epistemic question:**  
-Why is a verification-first, interpretation-restricted engine necessary at all?
-
-**Role:**  
-Conceptual framing, philosophical constraints, early formal definitions.
-
-**Status:**  
-Developed outside this repository as papers, conceptual frameworks, and early prototypes.
+**Purpose:** Conceptual framing and philosophical foundations.  
+**Status:** Completed externally prior to this repository.
 
 ---
 
 ### Phase-2 — Epistemic State Engine
-**Epistemic question:**  
-What can be stated *without* interpretation?
-
-**Role:**  
-Formalization of auditable epistemic states (e.g., decidable / undecidable / constrained).  
-No theory comparison, no ranking, no explanatory output.
-
-**Location:**  
-Implemented and documented in this repository.
+**Purpose:** Formalization of auditable epistemic states without interpretation.  
+**Status:** Completed and documented in this repository.
 
 ---
 
 ### Phase-3 — Deterministic Execution Control
-**Epistemic question:**  
-How do we prevent execution mechanics from biasing outcomes?
-
-**Role:**  
-Deterministic execution rules, strict separation of ingest and analysis, execution audits.
-
-**Status:**  
-Completed and frozen under explicit governance documents.
+**Purpose:** Deterministic execution and execution bias prevention.  
+**Status:** Completed and permanently frozen.
 
 ---
 
 ### Phase-4 — Governance and Evaluation Boundary
-**Epistemic question:**  
-How do we prevent the system from claiming understanding?
-
-**Role:**  
-Governance rules, evaluation contracts, theory handling without theory comprehension.  
-No interpretation, no endorsement, no superiority claims.
-
-**Status:**  
-Formally frozen. Governed by explicit contract tests and documentation.
+**Purpose:** Governance rules preventing interpretive authority.  
+**Status:** Permanently locked under governance contracts.
 
 ---
 
-## Repository Ecosystem — High-Level Map
+### Phase-5 — Finalization and Closeout
+**Purpose:** Formal closure of the governance lineage and entry into terminal idle state.  
+**Status:** Finalized as documented in  
+[PHASE5_CLOSEOUT.md](docs/phase5/PHASE5_CLOSEOUT.md).
 
-The TRIZEL project spans multiple repositories, each with a clearly defined role.
-
-| Repository | Role |
-|-----------|------|
-| **trizel-epistemic-engine** | Core epistemic engine, governance framework, and phase orchestration |
-| **trizel-monitor** | Scientific ingest layer and data snapshot integrity |
-| **AUTO-DZ-ACT-3I-ATLAS-DAILY** | Daily immutable snapshots of official observational data |
-| **AUTO-DZ-ACT-ANALYSIS-3I-ATLAS** | Verification-first analytical experiments (separate from governance) |
-| **trizel-AI** | Experimental AI interfaces (non-authoritative) |
-| **trizel-phase4-gateway** | Early isolated experimentation for Phase-4 concepts |
-| **trizel-global-access** | Access control and dissemination tooling |
-| **kahyaas-smart-contracts** | Auxiliary governance and formal logic experiments |
-
-Each repository represents either:
-- a **phase**,  
-- a **supporting module**, or  
-- an **auxiliary tool**.
-
-No single repository represents the project in its entirety.
+Phase-5 represents the terminal state of the current governance lineage.  
+Any future work constitutes a **new project instance**, not a continuation  
+of this phase sequence.
 
 ---
 
-## Relationship to Public Scientific Record
+## Repository Ecosystem (Historical Reference Only)
 
-The TRIZEL project was **publicly documented and announced prior to the current repository organization** through peer-addressable Zenodo records.
+During its active lifecycle, the TRIZEL program included supporting repositories.  
+All listed repositories now exist for archival reference only:
 
-These records establish:
-- scientific lineage,
-- methodological continuity,
-- and public timestamped disclosure.
+| Repository                        | Role |
+|----------------------------------|------|
+| trizel-epistemic-engine           | Core epistemic engine and governance framework (this repository). |
+| trizel-monitor                    | Scientific ingest layer and snapshot integrity. |
+| AUTO-DZ-ACT-3I-ATLAS-DAILY        | Immutable observational data snapshots. |
+| AUTO-DZ-ACT-ANALYSIS-3I-ATLAS     | Verification-first analytical experiments (archived). |
+| trizel-AI                         | Experimental AI interfaces (non-authoritative, historical). |
 
-Representative (non-exhaustive) examples include:
-
-- **TRIZEL AUTO DZ ACT – Scientific Algorithm v2.0 for Experimental Logic Validation**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.16522543
-
-- **Assessment of the Absence of Magnetic Measurements for the Interstellar Object 3I/ATLAS (V2 APS Edition)**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.17834092
-
-- **AUTO DZ ACT: A State-Based Verification Framework Applied to 3I/ATLAS**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.17935646
-
-- **AUTO DZ ACT: A Verification-First, State-Defined Framework for Experimental Logic Validation**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.17968772
-
-- **TRIZEL Scientific Ingest Layer — Final Implementation (trizel-monitor)**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.18012859
-
-- **TRIZEL Epistemic Engine — Phase-3 Deterministic Analytical Execution Framework**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.18117231
-
-- **AUTO-DZ-ACT-3I-ATLAS-DAILY — Daily Official Scientific Data Snapshot**  
-  Zenodo DOI: https://doi.org/10.5281/zenodo.18124271
-
-These disclosures are **contextual and declarative only**.  
-They do not modify governance rules or introduce new claims.
+No repository listed above carries execution or governance authority.
 
 ---
 
-## Governance Status
+## Relationship to the Scientific Record
 
-- Phase-3: **Completed and frozen**
-- Phase-4: **Formally frozen under governance contract**
+This repository preserves the methodological and governance contributions  
+of the TRIZEL program for historical study, audit, and citation.  
 
-Phase-4 explicitly forbids:
-- interpretive claims,
-- theory ranking,
-- superiority language,
-- and claims of understanding.
-
-This repository **documents** those constraints; it does not relax them.
+The project makes no claims of interpretation, endorsement, or theoretical superiority.
 
 ---
-## Visual Summary — Conceptual Only
 
-The diagram below is non-operational, non-executive, and purely conceptual.
+## Final Status
 
-```mermaid
-flowchart TB
+The TRIZEL Epistemic Engine is concluded as a governance project as of Phase-5.
 
-P1["Phase-1<br/>Conceptual Precursor"]
-P2["Phase-2<br/>Epistemic State Engine"]
-P3["Phase-3<br/>Deterministic Execution Control"]
-P4["Phase-4<br/>Governance & Evaluation Gate"]
+No further actions are authorized under the current project charter.  
+This statement does not restrict future scientific research conducted under a new, explicitly defined project charter.  
 
-R_CORE["trizel-epistemic-engine<br/>(core epistemic framework)"]
-R_MON["trizel-monitor<br/>(scientific ingest layer)"]
-R_DAILY["AUTO-DZ-ACT-3I-ATLAS-DAILY<br/>(daily data snapshots)"]
-R_GATE["trizel-phase4-gateway<br/>(evaluation governance layer)"]
-
-P1 --> P2
-P2 --> P3
-P3 --> P4
-
-P2 --> R_CORE
-P3 --> R_CORE
-P4 --> R_GATE
-
-R_MON --> R_DAILY
+This repository remains immutable under  
+[PHASE5_CLOSEOUT.md](docs/phase5/PHASE5_CLOSEOUT.md).
