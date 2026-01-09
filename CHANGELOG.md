@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Refined repository header to distinguish definitional vs operational authority
+- Added explicit "Repository Scope" section defining what this repository provides and does not provide
+- Clarified separation of concerns between definitional (this repo), governance (trizel-core), and execution (downstream) layers
+- Updated repository ecosystem table to include trizel-core and clarify authority boundaries
+- Improved immutability policy language to focus on definitional integrity
+
 ### Added
 - Repository header establishing constitutional status and governance relationship
 - Relationship to trizel-core section clarifying operational vs. definitional authority
