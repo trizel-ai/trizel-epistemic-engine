@@ -1,3 +1,14 @@
+---
+## Repository Header (Mandatory)
+
+- **Layer**: Constitution  
+- **Status**: Canonical (Immutable)  
+- **Authority Type**: Epistemic / Definitional  
+- **Governing Authority**: https://github.com/trizel-ai/trizel-core  
+- **Charter Source**: This repository (`trizel-epistemic-engine`)  
+
+---
+
 # TRIZEL Epistemic Engine (Archival Repository)
 
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
@@ -18,6 +29,37 @@ The TRIZEL Epistemic Engine was built on the principle:
 This principle governed the project across its bounded phases.  
 As of Phase-5 closeout, the project is concluded as a governance instance.  
 The principle remains part of the historical scientific record.
+
+---
+
+## Relationship to TRIZEL Core
+
+This repository serves as the **epistemic constitution** of the TRIZEL framework.  
+It defines immutable epistemic rules, definitional authority, and conceptual boundaries.
+
+**TRIZEL Core** ([https://github.com/trizel-ai/trizel-core](https://github.com/trizel-ai/trizel-core)) operates as the **operational governance and enforcement layer**.  
+It is responsible for policy execution, workflow enforcement, and operational decisions.
+
+**This repository does NOT contain:**
+- Operational policy or procedures
+- Executable code or logic
+- Scientific analysis or interpretation
+
+All operational governance resides in TRIZEL Core.  
+This repository provides only definitional and epistemic authority.
+
+---
+
+## Immutability Policy
+
+This repository operates under strict immutability controls to preserve constitutional integrity:
+
+- **All changes require Pull Request review** — No direct commits to protected branches.
+- **CHANGELOG.md is mandatory** — Every amendment must be documented with rationale.
+- **Released versions are immutable** — Published releases cannot be altered post-publication.
+- **Semantic Versioning (SemVer) is enforced** — Version increments must reflect change scope accurately.
+
+These controls ensure that the epistemic foundation remains stable, auditable, and trustworthy.
 
 ---
 
