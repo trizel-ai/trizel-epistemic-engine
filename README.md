@@ -1,5 +1,14 @@
 # TRIZEL Epistemic Engine (Archival Repository)
 
+## Repository Header (Mandatory)
+
+- **Layer:** Constitution  
+- **Status:** Canonical (Immutable)  
+- **Governing Authority:** [https://github.com/trizel-ai/trizel-core](https://github.com/trizel-ai/trizel-core) (Governance)  
+- **Charter Source:** This repository (trizel-epistemic-engine)
+
+---
+
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
 
 This repository serves as the **archival record** of that completed program.  
@@ -75,6 +84,38 @@ All listed repositories now exist for archival reference only:
 | trizel-AI                         | Experimental AI interfaces (non-authoritative, historical). |
 
 No repository listed above carries execution or governance authority.
+
+---
+
+## Relationship to trizel-core
+
+This repository serves as the **immutable definitional authority** for the TRIZEL Constitution.
+
+**trizel-core** is the **operational enforcement and registry layer** that:
+- Implements governance standards and policies
+- Maintains the canonical repository registry
+- Enforces epistemic pipeline compliance across the TRIZEL ecosystem
+
+**trizel-epistemic-engine** (this repository) is the **constitutional baseline** that:
+- Defines the foundational epistemic laws and definitions
+- Establishes the immutable governance principles
+- Provides the definitional source of truth
+
+**Operational policies** (enforcement mechanisms, registry updates, compliance tooling) belong in **trizel-core**.  
+**Definitional authority** (epistemic principles, governance constitution) belongs in **trizel-epistemic-engine**.
+
+---
+
+## Immutability Policy
+
+This repository follows strict immutability protocols to ensure auditability and citation integrity:
+
+1. **Changes via Pull Request Only** — All modifications must be submitted through pull requests with review
+2. **Changelog Required** — All changes must be documented in CHANGELOG.md before merge
+3. **Releases Are Immutable** — Once released and tagged, versions cannot be altered
+4. **Semantic Versioning** — Version numbers follow SemVer (MAJOR.MINOR.PATCH) conventions
+
+These constraints ensure that the constitutional baseline remains traceable, auditable, and stable.
 
 ---
 
