@@ -246,4 +246,4 @@ Future phases must acknowledge and honor these invariants or explicitly document
 
 ---
 
-END OF GOVERNANCE INVARIANTS
+END OF PHASE-5 GOVERNANCE INVARIANTS

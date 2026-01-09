@@ -105,13 +105,17 @@ Phase-5 is complete when:
 ## Relationship to Other Phases
 
 ### Phase-4 (Completed)
+
 Phase-5 builds on Phase-4's governance freeze by:
+
 - Generalizing governance principles across all phases
 - Establishing transition protocols
 - Creating planning boundaries for future work
 
 ### Phase-6 and Beyond (Future)
+
 Phase-5 provides:
+
 - Governance constraints for all future phases
 - Transition requirements and protocols
 - Planning framework boundaries
