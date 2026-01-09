@@ -1,3 +1,12 @@
+## Repository Header (Mandatory)
+
+- **Layer:** Constitution
+- **Status:** Canonical (Immutable)
+- **Governing Authority:** https://github.com/trizel-ai/trizel-core (Governance)
+- **Charter Source:** This repository (trizel-epistemic-engine)
+
+---
+
 # TRIZEL Epistemic Engine (Archival Repository)
 
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
@@ -84,6 +93,40 @@ This repository preserves the methodological and governance contributions
 of the TRIZEL program for historical study, audit, and citation.  
 
 The project makes no claims of interpretation, endorsement, or theoretical superiority.
+
+---
+
+## Relationship to trizel-core
+
+The **trizel-core** repository serves as the operational enforcement and registry layer for the TRIZEL governance framework. It maintains:
+
+- The operational governance policies and registry
+- Cross-repository coordination and compliance tracking
+- The canonical list of all TRIZEL repositories and their status
+
+This repository (**trizel-epistemic-engine**) serves as the immutable definitional authority—the Constitution layer. It defines the fundamental epistemic principles and governance rules.
+
+**Operational policies** and enforcement mechanisms belong in **trizel-core**.  
+**Constitutional definitions** and epistemic law belong in this repository.
+
+---
+
+## Immutability Policy
+
+This repository follows strict immutability rules to ensure auditability and governance integrity:
+
+1. **Changes via Pull Request Only:** All modifications must be proposed via pull request and reviewed before merging.
+
+2. **Changelog Required:** Every substantive change must be documented in [CHANGELOG.md](CHANGELOG.md) following the Keep a Changelog format.
+
+3. **Releases are Immutable:** Once a version is released and tagged, its content cannot be altered. Any corrections require a new version.
+
+4. **Semantic Versioning:** This repository follows [Semantic Versioning](https://semver.org/):
+   - **MAJOR:** Breaking changes to constitutional definitions or governance rules
+   - **MINOR:** Additive changes (new sections, clarifications)
+   - **PATCH:** Corrections, typos, formatting improvements
+
+See [CHANGELOG.md](CHANGELOG.md) for the version history.
 
 ---
 
