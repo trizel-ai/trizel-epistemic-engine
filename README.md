@@ -1,3 +1,11 @@
+## Repository Header (Mandatory)
+- **Layer:** Constitution
+- **Status:** Canonical (Immutable)
+- **Governing Authority:** https://github.com/trizel-ai/trizel-core (Governance)
+- **Charter Source:** This repository (https://github.com/trizel-ai/trizel-epistemic-engine)
+
+---
+
 # TRIZEL Epistemic Engine (Archival Repository)
 
 The TRIZEL Epistemic Engine was a multi-phase research program designed to build an **audit-safe, epistemically constrained framework** for handling competing scientific interpretations of rare or ambiguous phenomena.
@@ -18,6 +26,16 @@ The TRIZEL Epistemic Engine was built on the principle:
 This principle governed the project across its bounded phases.  
 As of Phase-5 closeout, the project is concluded as a governance instance.  
 The principle remains part of the historical scientific record.
+
+---
+
+## Relationship to trizel-core
+
+This repository serves as the **immutable definitional authority** for the TRIZEL Constitution, establishing epistemic law and governance definitions.
+
+The **trizel-core** repository (https://github.com/trizel-ai/trizel-core) serves as the **operational enforcement and registry layer**, implementing governance procedures and maintaining operational state.
+
+**Operational policies, runtime procedures, and enforcement mechanisms belong in trizel-core.** This repository contains only the canonical constitutional framework and epistemic definitions that govern the broader TRIZEL ecosystem.
 
 ---
 
@@ -84,6 +102,20 @@ This repository preserves the methodological and governance contributions
 of the TRIZEL program for historical study, audit, and citation.  
 
 The project makes no claims of interpretation, endorsement, or theoretical superiority.
+
+---
+
+## Immutability Policy
+
+This repository operates under strict immutability constraints to preserve constitutional integrity:
+
+1. **Change Process:** All changes must be submitted via Pull Request with explicit justification.
+2. **Changelog Requirement:** All changes must be documented in CHANGELOG.md before merge.
+3. **Immutable Releases:** Tagged releases are permanently frozen and may not be modified.
+4. **Versioning:** This repository follows Semantic Versioning (SemVer):
+   - **MAJOR:** Constitutional framework changes
+   - **MINOR:** New epistemic definitions or governance provisions
+   - **PATCH:** Corrections and clarifications that do not alter meaning
 
 ---
 
