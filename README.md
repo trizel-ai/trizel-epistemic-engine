@@ -32,8 +32,8 @@ The principle remains part of the historical scientific record.
 ## Repository Scope
 
 **This repository provides:**
-- Definitional authority for the TRIZEL constitutional framework
-- Epistemic principles and foundational definitions
+- Source definitions for the TRIZEL constitutional framework (what terms mean, what principles apply)
+- Epistemic principles and foundational concepts
 - Historical documentation of the TRIZEL Epistemic Engine program
 - Immutable reference for constitutional interpretation
 
@@ -115,7 +115,7 @@ All listed repositories now exist for archival reference only:
 | AUTO-DZ-ACT-ANALYSIS-3I-ATLAS     | Verification-first analytical experiments (archived). |
 | trizel-AI                         | Experimental AI interfaces (non-authoritative, historical). |
 
-This repository provides definitional authority only. Operational enforcement resides in trizel-core. Execution capabilities reside in downstream repositories.
+See "Repository Scope" section above for detailed separation of definitional, operational, and execution concerns.
 
 ---
 
