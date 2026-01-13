@@ -1,8 +1,8 @@
 ## Repository Header (Mandatory)
-- **Layer:** Constitution
-- **Status:** Canonical (Immutable)
-- **Governing Authority:** https://github.com/trizel-ai/trizel-core (Governance)
-- **Charter Source:** This repository (https://github.com/trizel-ai/trizel-epistemic-engine)
+- **Layer:** Constitution (Definitional Authority Only)
+- **Status:** Immutable Reference
+- **Operational Governance:** https://github.com/trizel-ai/trizel-core (Enforcement & Registry)
+- **Definitional Source:** This repository (https://github.com/trizel-ai/trizel-epistemic-engine)
 
 ---
 
@@ -29,13 +29,35 @@ The principle remains part of the historical scientific record.
 
 ---
 
+## Repository Scope
+
+**This repository provides:**
+- Source definitions for the TRIZEL constitutional framework (what terms mean, what principles apply)
+- Epistemic principles and foundational concepts
+- Historical documentation of the TRIZEL Epistemic Engine program
+- Immutable reference for constitutional interpretation
+
+**This repository does NOT provide:**
+- Operational governance procedures (→ trizel-core)
+- Runtime enforcement mechanisms (→ trizel-core)
+- Execution logic or active systems (→ downstream repositories)
+- Interpretive authority over scientific claims
+- Active development or live services
+
+---
+
 ## Relationship to trizel-core
 
-This repository serves as the **immutable definitional authority** for the TRIZEL Constitution, establishing epistemic law and governance definitions.
+This repository serves as the **immutable definitional source** for the TRIZEL Constitution, establishing foundational epistemic principles and governance definitions.
 
-The **trizel-core** repository (https://github.com/trizel-ai/trizel-core) serves as the **operational enforcement and registry layer**, implementing governance procedures and maintaining operational state.
+The **trizel-core** repository (https://github.com/trizel-ai/trizel-core) serves as the **operational governance and registry layer**, implementing procedures and maintaining operational state based on the definitions provided here.
 
-**Operational policies, runtime procedures, and enforcement mechanisms belong in trizel-core.** This repository contains only the canonical constitutional framework and epistemic definitions that govern the broader TRIZEL ecosystem.
+**Separation of concerns:**
+- **Definitions** (this repository): What terms mean, what principles apply
+- **Governance** (trizel-core): How those definitions are operationally enforced
+- **Execution** (downstream): Application of governance in specific contexts
+
+**Operational policies, runtime procedures, and enforcement mechanisms belong in trizel-core.** This repository contains only the definitional constitutional framework and epistemic principles that provide the foundation for the broader TRIZEL ecosystem.
 
 ---
 
@@ -86,13 +108,14 @@ All listed repositories now exist for archival reference only:
 
 | Repository                        | Role |
 |----------------------------------|------|
-| trizel-epistemic-engine           | Core epistemic engine and governance framework (this repository). |
+| trizel-epistemic-engine           | Constitutional definitions and epistemic principles (this repository). |
+| trizel-core                       | Operational governance, enforcement, and registry. |
 | trizel-monitor                    | Scientific ingest layer and snapshot integrity. |
 | AUTO-DZ-ACT-3I-ATLAS-DAILY        | Immutable observational data snapshots. |
 | AUTO-DZ-ACT-ANALYSIS-3I-ATLAS     | Verification-first analytical experiments (archived). |
 | trizel-AI                         | Experimental AI interfaces (non-authoritative, historical). |
 
-No repository listed above carries execution or governance authority.
+See "Repository Scope" section above for detailed separation of definitional, operational, and execution concerns.
 
 ---
 
@@ -107,13 +130,13 @@ The project makes no claims of interpretation, endorsement, or theoretical super
 
 ## Immutability Policy
 
-This repository operates under strict immutability constraints to preserve constitutional integrity:
+This repository operates under strict immutability constraints to preserve definitional integrity:
 
 1. **Change Process:** All changes must be submitted via Pull Request with explicit justification.
 2. **Changelog Requirement:** All changes must be documented in CHANGELOG.md before merge.
 3. **Immutable Releases:** Tagged releases are permanently frozen and may not be modified.
 4. **Versioning:** This repository follows Semantic Versioning (SemVer):
-   - **MAJOR:** Constitutional framework changes
+   - **MAJOR:** Changes to constitutional definitions or foundational principles
    - **MINOR:** New epistemic definitions or governance provisions
    - **PATCH:** Corrections and clarifications that do not alter meaning
 
